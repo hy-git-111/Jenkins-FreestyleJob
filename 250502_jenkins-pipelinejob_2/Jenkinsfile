@@ -9,9 +9,7 @@ pipeline{
         }
         stage('setup') {
             steps {
-                dir('250502_jenkins-pipelinejob_2') {
-                    sh './build.sh'
-                    }
+                sh './build.sh'
                 echo "Python 환경을 설정합니다."
                 echo "pytest 설치 완료"
             }
