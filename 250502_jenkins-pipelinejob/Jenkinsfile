@@ -8,7 +8,9 @@ pipeline{
         }
         stage('Build') {
             steps {
-                sh './build.sh'
+                dir('250502_jenkins-pipelinejob') {
+                    sh './build.sh'
+                }
             }
         }
         stage('Test') {
