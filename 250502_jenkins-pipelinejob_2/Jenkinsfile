@@ -6,7 +6,7 @@ pipeline{
     stages {
         stage('Checkout') {
             steps {
-                git url : 'https://github.com/hy-git-111/Jenkins-FreestyleJob.git', branch: params.BRANCH
+                git url : 'https://github.com/hy-git-111/Jenkins-FreestyleJob.git', branch: 'main'
                 echo '소스코드를 git 저장소에서 성공적으로 가져왔습니다.'
             }
         }
