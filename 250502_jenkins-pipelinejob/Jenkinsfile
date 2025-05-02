@@ -2,12 +2,18 @@ pipeline{
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: '빌드할 git branch')
     }
-    agent any
+    agent { label 'docker-builder'} // docker-builder agent에서 실행
+    
+    // environment {
+    //     credentials() 헬퍼 사용
+    // }
     stages {
         stage('Checkout') {
+            agent { label 'windows-builder'}    // Checkout 스테이지는 windows-builder agent에서 실행됨
             steps {
                 echo 'Checking out code...'
                 echo "Building branch: ${params.BRANCH}"
+                // withCredentials() 스텝 사용
             }
         }
         stage('Build') {
