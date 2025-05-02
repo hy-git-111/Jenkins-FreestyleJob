@@ -12,6 +12,9 @@ pipeline{
         }
         stage('setup') {
             steps {
+                dir('250502_jenkins-pipelinejob_2') {
+                    sh './build.sh'
+                    }
                 echo "Python 환경을 설정합니다."
                 sh 'python3 -m venv venv'
                 sh '. venv/bin/activate'
